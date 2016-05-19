@@ -1,14 +1,11 @@
 package com.study.gourdboy.musicdemo2.utils;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
-
 import com.study.gourdboy.musicdemo2.Constant.IConstants;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,6 +86,6 @@ public class NetWorkUtil implements IConstants
                 msg.obj = bitmap;
                 mHandler.sendMessage(msg);
             }
-        }.execute(imageurl,handler,pathDir);
+        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,imageurl,handler,pathDir);
     }
 }
